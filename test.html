@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Slide</title>
+  <style>
+    .header-action-btn {
+      padding: 10px;
+      font-size: 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cart-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: right 0.4s ease-in-out;
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .cart-menu.active {
+      right: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .qty-controls {
+      display: flex;
+      gap: 5px;
+    }
+
+    .qty-btn {
+      background: #eee;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="header-action-btn">🛒 Cart</button>
+
+  <div class="cart-menu" id="cartMenu">
+    <h2>Your Cart</h2>
+    <div class="cart-item">
+      <img src="https://via.placeholder.com/60" />
+      <div>
+        <h4>Product One</h4>
+        <p>₦5,000</p>
+        <div class="qty-controls">
+          <button class="qty-btn">−</button>
+          <span>1</span>
+          <button class="qty-btn">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cartBtn = document.querySelector('.header-action-btn');
+      const cartMenu = document.getElementById('cartMenu');
+
+      cartBtn.addEventListener('click', () => {
+        cartMenu.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
